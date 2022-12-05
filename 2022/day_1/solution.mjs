@@ -1,10 +1,11 @@
 import { data } from './input.mjs'
 
+// https://adventofcode.com/2022/day/1
+
 let sum = 0
 let greatest = 0
 
-let splitDataPerReindeer = data.split(`
-`)
+let splitDataPerReindeer = data.split(`\n`)
 
 let summedCaloriesPerReindeer = splitDataPerReindeer.map(d => {
   let a = JSON.parse(d || 0)
