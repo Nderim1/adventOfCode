@@ -37,7 +37,7 @@ let pt2Score = {
   'p2': 0
 }
 
-const playRPSPartOne = (round, score) => {
+const playRPSPartOne = (round, scoreStore) => {
   let player1Pick = round[0]
   let player2Pick = round[1]
 
@@ -47,24 +47,24 @@ const playRPSPartOne = (round, score) => {
     (convertToShape['P'].includes(player1Pick) && convertToShape['P'].includes(player2Pick)) ||
     (convertToShape['S'].includes(player1Pick) && convertToShape['S'].includes(player2Pick))
   ) {
-    score['p1'] += shapeToPoints[player1Pick] + resultsToPoints['D']
-    score['p2'] += shapeToPoints[player2Pick] + resultsToPoints['D']
+    scoreStore['p1'] += shapeToPoints[player1Pick] + resultsToPoints['D']
+    scoreStore['p2'] += shapeToPoints[player2Pick] + resultsToPoints['D']
   } else if (
     // Player 2 wins
     (convertToShape['R'].includes(player1Pick) && convertToShape['P'].includes(player2Pick)) ||
     (convertToShape['S'].includes(player1Pick) && convertToShape['R'].includes(player2Pick)) ||
     (convertToShape['P'].includes(player1Pick) && convertToShape['S'].includes(player2Pick))
   ) {
-    score['p1'] += shapeToPoints[player1Pick] + resultsToPoints['L']
-    score['p2'] += shapeToPoints[player2Pick] + resultsToPoints['W']
+    scoreStore['p1'] += shapeToPoints[player1Pick] + resultsToPoints['L']
+    scoreStore['p2'] += shapeToPoints[player2Pick] + resultsToPoints['W']
   } else if (
     // Player 1 wins
     (convertToShape['R'].includes(player1Pick) && convertToShape['S'].includes(player2Pick)) ||
     (convertToShape['S'].includes(player1Pick) && convertToShape['P'].includes(player2Pick)) ||
     (convertToShape['P'].includes(player1Pick) && convertToShape['R'].includes(player2Pick))
   ) {
-    score['p1'] += shapeToPoints[player1Pick] + resultsToPoints['W']
-    score['p2'] += shapeToPoints[player2Pick] + resultsToPoints['L']
+    scoreStore['p1'] += shapeToPoints[player1Pick] + resultsToPoints['W']
+    scoreStore['p2'] += shapeToPoints[player2Pick] + resultsToPoints['L']
   }
 }
 
